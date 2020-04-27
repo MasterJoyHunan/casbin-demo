@@ -15,4 +15,4 @@ mysql:
 
 log:
   path:
-  level: info # 合法选项 "panic" "fatal" "error" "warn" "warning" "info" "debug" "trace"
+  level: trace # 合法选项 "panic" "fatal" "error" "warn" "warning" "info" "debug" "trace"

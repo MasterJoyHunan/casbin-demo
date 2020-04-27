@@ -3,6 +3,7 @@ package route
 import (
 	"casbindemo/config"
 	"casbindemo/controller"
+	"casbindemo/pkg/casbin"
 	"github.com/gin-gonic/gin"
 )
 
@@ -16,6 +17,8 @@ func Setup() *gin.Engine {
 		ctx.Next()
 	})
 
+	route.Use(casbin.Authentication)
+
 	// 查询列表
 	route.GET("/news", controller.GetNewsList)
 
@@ -26,7 +29,7 @@ func Setup() *gin.Engine {
 	route.POST("/news", controller.AddNews)
 
 	// 修改
-	route.PUT("/news", controller.EditNews)
+	route.PUT("/news/:id", controller.EditNews)
 
 	// 删除
 	route.DELETE("/news/:id", controller.DelNews)
