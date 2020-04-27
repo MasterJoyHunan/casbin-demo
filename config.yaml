@@ -1,0 +1,18 @@
+version: '3'
+
+application:
+  env: debug  # 合法选项 "" (默认为空 = debug ) "debug" "release" "test"
+  host: 0.0.0.0
+  port: 8088
+
+mysql:
+  host: 127.0.0.1
+  port: 3306
+  user: joy
+  pwd:
+  db: casbin
+  prefix:
+
+log:
+  path:
+  level: info # 合法选项 "panic" "fatal" "error" "warn" "warning" "info" "debug" "trace"
