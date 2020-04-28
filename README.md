@@ -10,7 +10,7 @@ Casbin是一个强大的、高效的开源访问控制框架，其权限管理�
 |......|
 [官网](https://casbin.org/)
 
-#### [RBAC 单角色](https://github.com/MasterJoyHunan/casbin-demo/tree/master)
+#### [RBAC0](https://github.com/MasterJoyHunan/casbin-demo/tree/master) 单角色
 rbac0 单角色模型，可以看做 acl 一样的模型。
 
 只不过一个是对角色进行分配权限，一个对用户分配权限。
@@ -19,7 +19,7 @@ rbac0 单角色模型，可以看做 acl 一样的模型。
 
 这里 sub 可以理解为角色，也可以同样理解为用户
 
-#### [RBAC 多角色](https://github.com/MasterJoyHunan/casbin-demo/tree/rbac0)
+#### [RBAC0](https://github.com/MasterJoyHunan/casbin-demo/tree/rbac0) 多角色
 
 rbac0 多角色模型：一个用户可以拥有多个角色，这是一种非常常见的需求
 
@@ -43,12 +43,13 @@ g, alice, editor // [重点] 可以理解为 editor 角色含有 alice 用户
 ```
 其他代码完全不需要改变，即可完成了多角色的定义
 
-#### [RBAC 角色继承](https://github.com/MasterJoyHunan/casbin-demo/tree/rbac1)
+#### [RBAC1](https://github.com/MasterJoyHunan/casbin-demo/tree/rbac1) 角色继承
 
 角色继承在可以完全复用多角色的代码，仅仅修改 `policy` 即可实现
 ```cvs
-
+g, root, admin  // [重点] 可以理解为 root 角色继承 admin 角色的权限
+g, root, editor // [重点] 可以理解为 root 角色含有 editor 角色的权限
+g, uid:2, root  // 用户 uid:2 的角色为 root 
 ```
-
 #### LICENCE
 [MIT](https://en.wikipedia.org/wiki/MIT_License)
