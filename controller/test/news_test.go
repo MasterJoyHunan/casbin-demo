@@ -23,7 +23,7 @@ func performRequest(req *http.Request) *httptest.ResponseRecorder {
 	return w
 }
 
-var auth = "uid:1"
+var auth = "uid:2"
 
 // 列表
 func TestGetNewsList(t *testing.T) {
