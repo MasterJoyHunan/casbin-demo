@@ -11,7 +11,7 @@
  Target Server Version : 80015
  File Encoding         : 65001
 
- Date: 28/04/2020 11:16:05
+ Date: 28/04/2020 15:09:46
 */
 
 SET NAMES utf8mb4;
@@ -35,9 +35,11 @@ CREATE TABLE `casbin_rule`  (
 -- Records of casbin_rule
 -- ----------------------------
 INSERT INTO `casbin_rule` VALUES ('p', 'admin', '/news/:id', 'GET', NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES ('p', 'admin', '/news', 'POST', NULL, NULL, NULL);
-INSERT INTO `casbin_rule` VALUES ('p', 'admin', '/news/:id', 'PUT', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES ('p', 'editor', '/news', 'POST', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES ('p', 'editor', '/news/:id', 'PUT', NULL, NULL, NULL);
 INSERT INTO `casbin_rule` VALUES ('p', 'admin', '/news/:id', 'DELETE', NULL, NULL, NULL);
 INSERT INTO `casbin_rule` VALUES ('p', 'admin', '/news', 'GET', NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES ('g', 'uid:1', 'admin', NULL, NULL, NULL, NULL);
+INSERT INTO `casbin_rule` VALUES ('g', 'uid:1', 'editor', NULL, NULL, NULL, NULL);
 
 SET FOREIGN_KEY_CHECKS = 1;

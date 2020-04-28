@@ -15,7 +15,7 @@ mysql:
 
 log:
   path:
-  level: warning # 合法选项 "panic" "fatal" "error" "warn" "warning" "info" "debug" "trace"
+  level: info # 合法选项 "panic" "fatal" "error" "warn" "warning" "info" "debug" "trace"
 
 casbin:
-  path:
+  path: G:\www-go\casbin-demo\rbac_model.conf
