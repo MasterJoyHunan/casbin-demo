@@ -9,7 +9,7 @@ import (
 func GetNewsList(ctx *gin.Context) {
 	role, _ := ctx.Get("role")
 	roleStr := role.(string)
-	logger.Logger.Debugf("%s 操作了 GetNewsList", roleStr)
+	logger.Logger.Warnf("[%s] 操作了 [GetN ewsList() ]", roleStr)
 	normal(ctx)
 }
 
@@ -17,7 +17,7 @@ func GetNewsList(ctx *gin.Context) {
 func GetNewsDetail(ctx *gin.Context) {
 	role, _ := ctx.Get("role")
 	roleStr := role.(string)
-	logger.Logger.Debugf("%s 操作了 GetNewsDetail", roleStr)
+	logger.Logger.Warnf("[%s] 操作了 [GetNew sDetail() ]", roleStr)
 	normal(ctx)
 }
 
@@ -25,7 +25,7 @@ func GetNewsDetail(ctx *gin.Context) {
 func AddNews(ctx *gin.Context) {
 	role, _ := ctx.Get("role")
 	roleStr := role.(string)
-	logger.Logger.Debugf("%s 操作了 AddNews", roleStr)
+	logger.Logger.Warnf("[%s] 操作了 [ AddNews() ]", roleStr)
 	normal(ctx)
 }
 
@@ -33,7 +33,7 @@ func AddNews(ctx *gin.Context) {
 func EditNews(ctx *gin.Context) {
 	role, _ := ctx.Get("role")
 	roleStr := role.(string)
-	logger.Logger.Debugf("%s 操作了 EditNews", roleStr)
+	logger.Logger.Warnf("[%s] 操作了 [E ditNews() ]", roleStr)
 	normal(ctx)
 }
 
@@ -41,7 +41,7 @@ func EditNews(ctx *gin.Context) {
 func DelNews(ctx *gin.Context) {
 	role, _ := ctx.Get("role")
 	roleStr := role.(string)
-	logger.Logger.Debugf("%s 操作了 DelNews", roleStr)
+	logger.Logger.Warnf("[%s] 操作了 [ DelNews() ]", roleStr)
 	normal(ctx)
 }
 

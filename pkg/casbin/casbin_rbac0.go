@@ -1,6 +1,7 @@
 package casbin
 
 import (
+	"casbindemo/config"
 	"casbindemo/logger"
 	"casbindemo/model"
 	"github.com/casbin/casbin/v2"
@@ -18,7 +19,7 @@ func Authentication(ctx *gin.Context) {
 		logger.Logger.Panic("初始化 Casbin 出现错误：", err)
 	}
 	ok, err := e.Enforce(role, ctx.FullPath(), ctx.Request.Method)
-	logger.Logger.Debugf("sub:[%s] obj:[%s] act:[%s] res:[%t]", role, ctx.FullPath(), ctx.Request.Method, ok)
+	logger.Logger.Warnf("sub:[%s] obj:[%s] act:[%s] res:[%t]", role, ctx.FullPath(), ctx.Request.Method, ok)
 	if err != nil {
 		logger.Logger.Panic("执行 e.Enforce() 出错：", err)
 	}
@@ -40,8 +41,11 @@ func initCasbin() (e *casbin.Enforcer, err error) {
 		return
 	}
 
-	wd, _ := os.Getwd()
-	e, err = casbin.NewEnforcer(wd+"/rbac_model.conf", adapter)
+	if config.CasbinConfig.Path == "" {
+		wd, _ := os.Getwd()
+		config.CasbinConfig.Path = wd + "/rbac_model.conf"
+	}
+	e, err = casbin.NewEnforcer(config.CasbinConfig.Path, adapter)
 	if err != nil {
 		return
 	}

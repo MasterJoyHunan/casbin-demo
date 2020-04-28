@@ -15,4 +15,7 @@ mysql:
 
 log:
   path:
-  level: trace # 合法选项 "panic" "fatal" "error" "warn" "warning" "info" "debug" "trace"
+  level: warning # 合法选项 "panic" "fatal" "error" "warn" "warning" "info" "debug" "trace"
+
+casbin:
+  path:

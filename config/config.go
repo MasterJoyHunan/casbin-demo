@@ -22,3 +22,8 @@ type Log struct {
 	Path  string
 	Level string
 }
+
+// casbin配置
+type Casbin struct {
+	Path string
+}

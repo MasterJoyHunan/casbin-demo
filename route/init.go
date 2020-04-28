@@ -9,11 +9,13 @@ import (
 
 func Setup() *gin.Engine {
 	gin.SetMode(config.ApplicationConfig.Env)
-	route := gin.New()
+	route := gin.Default()
 
-	// 假设登录,一般都用 JWT ,这里默认设置
+	// 假设登录,一般都用 JWT ,这里假设从 JWT 中解析了角色（用户）
 	route.Use(func(ctx *gin.Context) {
-		ctx.Set("role", "admin")
+		role := ctx.Request.Header.Get("Authority")
+		// role 就是 sub 的抽象，在 RBAC 中可以理解 role 为角色，在 ACL 中可以理解 role 为用户
+		ctx.Set("role", role)
 		ctx.Next()
 	})
 
@@ -35,4 +37,3 @@ func Setup() *gin.Engine {
 	route.DELETE("/news/:id", controller.DelNews)
 	return route
 }
-

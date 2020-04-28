@@ -17,7 +17,5 @@ func main() {
 	model.Setup()
 	r := route.Setup()
 
-
-
 	panic(r.Run(fmt.Sprintf("%s:%d", config.ApplicationConfig.Host, config.ApplicationConfig.Port)))
 }

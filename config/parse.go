@@ -6,9 +6,10 @@ import (
 )
 
 var (
-	MysqlConfig Mysql
-	LogConfig   Log
+	MysqlConfig       Mysql
+	LogConfig         Log
 	ApplicationConfig Application
+	CasbinConfig      Casbin
 )
 
 func Setup() {
@@ -27,5 +28,9 @@ func Setup() {
 
 	if err := viper.UnmarshalKey("application", &ApplicationConfig); err != nil {
 		log.Panic("APP配置文件格式错误", err)
+	}
+
+	if err := viper.UnmarshalKey("casbin", &CasbinConfig); err != nil {
+		log.Panic("casbin配置文件格式错误", err)
 	}
 }
