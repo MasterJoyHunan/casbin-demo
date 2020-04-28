@@ -23,13 +23,15 @@ func performRequest(req *http.Request) *httptest.ResponseRecorder {
 	return w
 }
 
+var auth = "admin"
+
 // 列表
 func TestGetNewsList(t *testing.T) {
 	req, err := http.NewRequest("GET", "/news", nil)
 	assert.Nil(t, err)
-	req.Header.Set("Authority", "admin")
+	req.Header.Set("Authority", auth)
 	w := performRequest(req)
-	assert.Equal(t, w.Code, 200)
+	assert.Equal(t, 200, w.Code)
 
 }
 
@@ -37,34 +39,34 @@ func TestGetNewsList(t *testing.T) {
 func TestGetNewsDetail(t *testing.T) {
 	req, err := http.NewRequest("GET", "/news/1", nil)
 	assert.Nil(t, err)
-	req.Header.Set("Authority", "admin")
+	req.Header.Set("Authority", auth)
 	w := performRequest(req)
-	assert.Equal(t, w.Code, 200)
+	assert.Equal(t, 200, w.Code)
 }
 
 // 添加
 func TestAddNews(t *testing.T) {
 	req, err := http.NewRequest("POST", "/news", nil)
 	assert.Nil(t, err)
-	req.Header.Set("Authority", "admin")
+	req.Header.Set("Authority", auth)
 	w := performRequest(req)
-	assert.Equal(t, w.Code, 200)
+	assert.Equal(t, 200, w.Code)
 }
 
 // 编辑
 func TestEditNews(t *testing.T) {
 	req, err := http.NewRequest("PUT", "/news/1", nil)
 	assert.Nil(t, err)
-	req.Header.Set("Authority", "admin")
+	req.Header.Set("Authority", auth)
 	w := performRequest(req)
-	assert.Equal(t, w.Code, 200)
+	assert.Equal(t, 200, w.Code)
 }
 
 // 删除
 func TestDelNews(t *testing.T) {
 	req, err := http.NewRequest("DELETE", "/news/1", nil)
 	assert.Nil(t, err)
-	req.Header.Set("Authority", "admin")
+	req.Header.Set("Authority", auth)
 	w := performRequest(req)
-	assert.Equal(t, w.Code, 200)
+	assert.Equal(t, 200, w.Code)
 }
